@@ -1,8 +1,10 @@
 ![GitHub Logo](https://github.com/gnea/gnea-Media/blob/master/Grbl%20Logo/Grbl%20Logo%20250px.png?raw=true)
 
 ***
-_Click the `Release` tab to download pre-compiled `.hex` files or just [click here](https://github.com/gnea/grbl/releases)_
+This fork of [grbl] is to support the [Varnerized ANT] compact printed circuit board mill.
+As such, no releases will be made from this repository. To build your own varnerized_grbl for building a Varnerized ANT, see the 'build' instructions below.
 ***
+
 Grbl is a no-compromise, high performance, low cost alternative to parallel-port-based motion control for CNC milling. This version of Grbl runs on an Arduino with a 328p processor (Uno, Duemilanove, Nano, Micro, etc).
 
 The controller is written in highly optimized C utilizing every clever feature of the AVR-chips to achieve precise timing and asynchronous operation. It is able to maintain up to 30kHz of stable, jitter free control pulses.
@@ -24,8 +26,14 @@ Grbl includes full acceleration management with look ahead. That means the contr
 ### Official Supporters of the Grbl CNC Project
 ![Official Supporters](https://github.com/gnea/gnea-Media/blob/master/Contributors.png?raw=true)
 
-
 ***
+
+## Building
+* Using a linux machine....
+* you'll need `gcc-avr` and `avr-libc`.
+* Edit the Makefile to set the proper `PROGRAMMER` values. I use `-c arduino -P /dev/ttyUSB0` for an Arduino Uno R3 plugged into my USB port.
+* `make`
+* `make flash` to send it to your board.
 
 ## Update Summary for v1.1
 - **IMPORTANT:** Your EEPROM will be wiped and restored with new settings. This is due to the addition of two new spindle speed '$' settings.
