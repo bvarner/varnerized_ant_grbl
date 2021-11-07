@@ -1,8 +1,24 @@
 ![GitHub Logo](https://github.com/gnea/gnea-Media/blob/master/Grbl%20Logo/Grbl%20Logo%20250px.png?raw=true)
 
 ***
-This fork of [grbl] is to support the [Varnerized ANT] compact printed circuit board mill.
-As such, no releases will be made from this repository. To build your own varnerized_grbl for building a Varnerized ANT, see the 'build' instructions below.
+#Varnerized ANT GRBL
+This fork of [grbl](https://github.com/gnea/grbl) is to support the [Varnerized ANT](https://github.com/bvarner/varnerized_ant_cpcbm) compact printed circuit board mill.
+
+There is no intent to create releases from this repository. To build your own grbl to power a Varnerized ANT, see the 'build' instructions below.
+
+## Varnerizations
+1. Configured for COREXY & Appropriate Homing methods.
+2. Spindle PWM enabled and converted to appropriate range for 15 position servo control.
+3. The following are the necessary pin-reassignments for the CNC Shield V 3.0
+   1. Labeled Limits for Z+ and Z- are now Spindle PWM Output.
+   2. Labeled SpnEn is now the Z-limit switch input pin.
+   3. Labeled SpnDir is now the Spindle Enable output.
+
+To calibrate your ESC for spindle PWM control....
+1. Power Up the Arduino, connect with a terminal. S15 M3
+2. Send `S15 M3` and make sure the ESC powers up.
+3. Send `S1`. Wait for the ESC to beep confirmation of the throttle calibration.
+4. Power off everything.
 ***
 
 Grbl is a no-compromise, high performance, low cost alternative to parallel-port-based motion control for CNC milling. This version of Grbl runs on an Arduino with a 328p processor (Uno, Duemilanove, Nano, Micro, etc).
